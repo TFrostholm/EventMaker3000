@@ -17,6 +17,7 @@
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction/>
+                        <Core:InvokeCommandAction Command="{Binding DeleteEventCommand}"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
