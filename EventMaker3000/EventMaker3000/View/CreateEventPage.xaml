@@ -13,14 +13,14 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Icon="Cancel" Label="appbarbutton">
+            <AppBarButton Icon="Cancel" Label="Cancel">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction TargetPage="EventMaker3000.View.EventPage"/>
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
-            <AppBarButton Icon="Accept" Label="appbarbutton" Command="{Binding CreateEventCommand}">
+            <AppBarButton Icon="Accept" Label="Done" Command="{Binding CreateEventCommand}">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction TargetPage="EventMaker3000.View.EventPage"/>

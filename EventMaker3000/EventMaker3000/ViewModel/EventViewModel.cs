@@ -18,6 +18,8 @@ namespace EventMaker3000.ViewModel
         private TimeSpan _time;
         private ICommand _createEventCommand;
         private ICommand _deleteEventCommand;
+        private string _deleteButtonVisibility = "Collapsed";
+        private ICommand _changeVisibilityCommand;
 
 
         public EventCatalogSingleton EventCatalogSingleton { get; set; }
@@ -61,6 +63,7 @@ namespace EventMaker3000.ViewModel
         public static Event SelectedEvent { get; set; }
 
         //
+
         public ICommand CreateEventCommand
         {
             get { return _createEventCommand; }
@@ -73,6 +76,32 @@ namespace EventMaker3000.ViewModel
         }
 
         public ICommand SelectEventCommand { get; set; }
+
+        public string DeleteButtonVisibility
+        {
+            get
+            {
+                return _deleteButtonVisibility;
+            }
+            set
+            {
+                _deleteButtonVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand ChangeVisibilityCommand
+        {
+            get
+            {
+                return _changeVisibilityCommand;
+            }
+            set
+            {
+                _changeVisibilityCommand = value;
+            }
+        }
+
 
 
 
@@ -90,6 +119,8 @@ namespace EventMaker3000.ViewModel
             _createEventCommand = new RelayCommand(EventHandler.CreateEvent);
 
             _deleteEventCommand = new RelayCommand(EventHandler.GetConfirmationAsync);
+
+            _changeVisibilityCommand=new RelayCommand(EventHandler.ChangeVisibility);
 
             // Assigns a unique Id to each newly created event. TODO Not working correctly
             Id = System.Threading.Interlocked.Increment(ref IdCounter);
