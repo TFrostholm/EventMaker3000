@@ -13,7 +13,7 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Icon="Delete" Label="Delete"  Visibility="{Binding DeleteButtonVisibility}">
+            <AppBarButton Icon="Delete" Label="Delete" IsEnabled="{Binding DeletebuttonEnableOrNot}">
                 <Interactivity:Interaction.Behaviors>
                     <Core:EventTriggerBehavior EventName="Click">
                         <Core:NavigateToPageAction/>
@@ -41,18 +41,23 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Events" Foreground="Black" Margin="0,20,0,0" Style="{ThemeResource HeaderTextBlockStyle}" HorizontalAlignment="center" VerticalAlignment="Center"/>
+        <TextBlock 
+            Text="Events" 
+            Foreground="Black" 
+            Margin="0,20,0,0" 
+            Style="{ThemeResource HeaderTextBlockStyle}" 
+            HorizontalAlignment="center" 
+            VerticalAlignment="Center"/>
 
         <ListView
 			ItemsSource="{Binding EventCatalogSingleton.Events, Mode=TwoWay}"
-			SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
-             
+			SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"             
 			Grid.Row="1"    
 			Background="WhiteSmoke"
 			Padding="0,30,0,0">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="SelectionChanged">
-                    <Core:InvokeCommandAction Command="{Binding ChangeVisibilityCommand}"/>
+                    <Core:InvokeCommandAction Command="{Binding EnableOrNotCommand}"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
             

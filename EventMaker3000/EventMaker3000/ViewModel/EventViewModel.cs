@@ -18,8 +18,9 @@ namespace EventMaker3000.ViewModel
         private TimeSpan _time;
         private ICommand _createEventCommand;
         private ICommand _deleteEventCommand;
-        private string _deleteButtonVisibility = "Collapsed";
-        private ICommand _changeVisibilityCommand;
+        private bool _deleteButtonEnableOrNot = false;
+        private ICommand _enableOrNotCommand;
+        
 
 
         public EventCatalogSingleton EventCatalogSingleton { get; set; }
@@ -61,9 +62,7 @@ namespace EventMaker3000.ViewModel
         }
 
         public static Event SelectedEvent { get; set; }
-
-        //
-
+        
         public ICommand CreateEventCommand
         {
             get { return _createEventCommand; }
@@ -77,34 +76,36 @@ namespace EventMaker3000.ViewModel
 
         public ICommand SelectEventCommand { get; set; }
 
-        public string DeleteButtonVisibility
+        // Disable or enable Deletebutton
+
+        public bool DeletebuttonEnableOrNot
         {
             get
             {
-                return _deleteButtonVisibility;
+                return _deleteButtonEnableOrNot;
             }
             set
             {
-                _deleteButtonVisibility = value;
+                _deleteButtonEnableOrNot = value;
                 OnPropertyChanged();
             }
+            
         }
 
-        public ICommand ChangeVisibilityCommand
+        public ICommand EnableOrNotCommand
         {
             get
             {
-                return _changeVisibilityCommand;
+                return _enableOrNotCommand;
             }
             set
             {
-                _changeVisibilityCommand = value;
+                _enableOrNotCommand = value;
             }
         }
 
 
-
-
+        // Constructor
         public EventViewModel()
         {
             //Initializes Date and Time with some values that are bound to controls.
@@ -120,7 +121,7 @@ namespace EventMaker3000.ViewModel
 
             _deleteEventCommand = new RelayCommand(EventHandler.GetDeleteConfirmationAsync);
 
-            _changeVisibilityCommand=new RelayCommand(EventHandler.ChangeVisibility);
+            _enableOrNotCommand = new RelayCommand(EventHandler.EnableOrNot);
 
             // Assigns a unique Id to each newly created event. TODO Not working correctly
             Id = System.Threading.Interlocked.Increment(ref IdCounter);
