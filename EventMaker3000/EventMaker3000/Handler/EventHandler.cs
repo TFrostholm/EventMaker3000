@@ -54,10 +54,11 @@ namespace EventMaker3000.Handler
 
             await msgbox.ShowAsync();
         }
-        
-        public void ChangeVisibility()
+
+        public void EnableOrNot()
         {
-            EventViewModel.DeleteButtonVisibility = EventViewModel.DeleteButtonVisibility == "Collapsed" ? "Visible" : "Collapsed";
+            EventViewModel.DeletebuttonEnableOrNot = EventViewModel.DeletebuttonEnableOrNot = true;
         }
+
     }
 }
