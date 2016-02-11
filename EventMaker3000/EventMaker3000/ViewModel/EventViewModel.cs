@@ -118,7 +118,7 @@ namespace EventMaker3000.ViewModel
             // Creates an instance of the RelayCommand and passes the CreateEvent method as a parameter
             _createEventCommand = new RelayCommand(EventHandler.CreateEvent);
 
-            _deleteEventCommand = new RelayCommand(EventHandler.GetConfirmationAsync);
+            _deleteEventCommand = new RelayCommand(EventHandler.GetDeleteConfirmationAsync);
 
             _changeVisibilityCommand=new RelayCommand(EventHandler.ChangeVisibility);
 

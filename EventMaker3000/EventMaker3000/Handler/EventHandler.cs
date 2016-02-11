@@ -32,7 +32,7 @@ namespace EventMaker3000.Handler
 
 
         // Confirmation box that prompts user before deletion
-        public async void GetConfirmationAsync()
+        public async void GetDeleteConfirmationAsync()
         {
             MessageDialog msgbox = new MessageDialog("Are you sure you want to permenantly delete this event?", "Delete event");
 
