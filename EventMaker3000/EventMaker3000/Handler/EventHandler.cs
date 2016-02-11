@@ -57,7 +57,7 @@ namespace EventMaker3000.Handler
 
         public void EnableOrNot()
         {
-            EventViewModel.DeletebuttonEnableOrNot = EventViewModel.DeletebuttonEnableOrNot == false ? true : false;
+            EventViewModel.DeletebuttonEnableOrNot = EventViewModel.DeletebuttonEnableOrNot = true;
         }
 
     }
