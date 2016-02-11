@@ -51,7 +51,7 @@
 
         <ListView
 			ItemsSource="{Binding EventCatalogSingleton.Events, Mode=TwoWay}"
-			SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"             
+			SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
 			Grid.Row="1"    
 			Background="WhiteSmoke"
 			Padding="0,30,0,0">
@@ -109,7 +109,17 @@
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                 </Style>
             </ListView.ItemContainerStyle>
-
         </ListView>
+        
+        <!--Testing-->
+        
+        <TextBlock 
+            Grid.Row="0"
+            Margin="5,5,5,5"  
+            VerticalAlignment="Center"  
+            HorizontalAlignment="Center"  
+            Text="There are no fruits in your list to display!"  
+            Style="{StaticResource BaseTextBlockStyle}"  
+            Visibility="{Binding TextBlockVisibility}"/>
     </Grid>
 </Page>

@@ -20,7 +20,14 @@ namespace EventMaker3000.ViewModel
         private ICommand _deleteEventCommand;
         private bool _deleteButtonEnableOrNot = false;
         private ICommand _enableOrNotCommand;
-        
+
+        //Listview
+        //private string _listViewVisibility = "Visible";
+        //private ICommand _listViewVisibilityCommand;
+
+        //TextBlock
+        private string _textBlockVisibility = "Collapsed";
+        private ICommand _textBlockVisibilityCommand;
 
 
         public EventCatalogSingleton EventCatalogSingleton { get; set; }
@@ -77,33 +84,55 @@ namespace EventMaker3000.ViewModel
         public ICommand SelectEventCommand { get; set; }
 
         // Disable or enable Deletebutton
-
         public bool DeletebuttonEnableOrNot
         {
-            get
-            {
-                return _deleteButtonEnableOrNot;
-            }
+            get { return _deleteButtonEnableOrNot;}
             set
             {
                 _deleteButtonEnableOrNot = value;
                 OnPropertyChanged();
-            }
-            
+            }            
         }
 
         public ICommand EnableOrNotCommand
         {
-            get
-            {
-                return _enableOrNotCommand;
-            }
+            get { return _enableOrNotCommand; }
+            set { _enableOrNotCommand = value; }
+        }
+
+        ///Set ListView visibility
+        //public string ListViewVisibility
+        //{
+        //    get { return _listViewVisibility;}
+        //    set
+        //    {
+        //        _listViewVisibility = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+
+        //public ICommand ListViewVisibilityCommand
+        //{
+        //    get{ return _listViewVisibilityCommand; }
+        //    set{ _listViewVisibilityCommand = value; }
+        //}
+
+        // Set TextBlock visibility
+        public string TextBlockVisibility
+        {
+            get { return _textBlockVisibility; }
             set
             {
-                _enableOrNotCommand = value;
+                _textBlockVisibility = value;
+                OnPropertyChanged();
             }
         }
 
+        public ICommand TextBlockVisibilityCommand
+        {
+            get { return _textBlockVisibilityCommand; }
+            set { _textBlockVisibilityCommand = value; }
+        }
 
         // Constructor
         public EventViewModel()
@@ -116,12 +145,14 @@ namespace EventMaker3000.ViewModel
             EventCatalogSingleton = EventCatalogSingleton.getInstance();
             EventHandler = new Handler.EventHandler(this);
 
-            // Creates an instance of the RelayCommand and passes the CreateEvent method as a parameter
+            // Creates an instance of the RelayCommand and passes necessary method as a parameter
             _createEventCommand = new RelayCommand(EventHandler.CreateEvent);
 
             _deleteEventCommand = new RelayCommand(EventHandler.GetDeleteConfirmationAsync);
 
             _enableOrNotCommand = new RelayCommand(EventHandler.EnableOrNot);
+
+            _textBlockVisibilityCommand = new RelayCommand(EventHandler.TextBlockVisibility);
 
             // Assigns a unique Id to each newly created event. TODO Not working correctly
             Id = System.Threading.Interlocked.Increment(ref IdCounter);

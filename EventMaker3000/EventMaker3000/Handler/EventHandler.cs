@@ -1,5 +1,6 @@
 ﻿using System;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 using EventMaker3000.Converter;
 using EventMaker3000.ViewModel;
 
@@ -58,6 +59,14 @@ namespace EventMaker3000.Handler
         public void EnableOrNot()
         {
             EventViewModel.DeletebuttonEnableOrNot = EventViewModel.DeletebuttonEnableOrNot = true;
+        }
+
+        public void TextBlockVisibility()
+        {
+            if (EventViewModel.EventCatalogSingleton.Events.Count < 1)
+            {
+                EventViewModel.TextBlockVisibility = EventViewModel.TextBlockVisibility = "Visible";
+            }        
         }
 
     }
