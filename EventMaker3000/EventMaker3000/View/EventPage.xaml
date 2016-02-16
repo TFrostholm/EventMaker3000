@@ -103,7 +103,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
 
-            <!--Sets each list view item to stretch-->
+            <!--Sets each listview item to stretch-->
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -111,15 +111,15 @@
             </ListView.ItemContainerStyle>
         </ListView>
         
-        <!--Testing-->
+        <!--Empty list view TextBlock-->
         
-        <TextBlock 
-            Grid.Row="0"
+        <!--<TextBlock--> 
+            <!--Grid.Row="1"
             Margin="5,5,5,5"  
             VerticalAlignment="Center"  
             HorizontalAlignment="Center"  
-            Text="There are no fruits in your list to display!"  
+            Text="You have no events"  
             Style="{StaticResource BaseTextBlockStyle}"  
-            Visibility="{Binding TextBlockVisibility}"/>
+            Visibility="{Binding TextBlockVisibility}"/>-->
     </Grid>
 </Page>

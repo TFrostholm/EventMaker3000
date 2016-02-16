@@ -61,13 +61,13 @@ namespace EventMaker3000.Handler
             EventViewModel.DeletebuttonEnableOrNot = EventViewModel.DeletebuttonEnableOrNot = true;
         }
 
-        public void TextBlockVisibility()
-        {
-            if (EventViewModel.EventCatalogSingleton.Events.Count < 1)
-            {
-                EventViewModel.TextBlockVisibility = EventViewModel.TextBlockVisibility = "Visible";
-            }        
-        }
+        //public void TextBlockVisibility()
+        //{
+        //    if (EventViewModel.EventCatalogSingleton.Events.Count < 1)
+        //    {
+        //        EventViewModel.TextBlockVisibility = EventViewModel.TextBlockVisibility = "Visible";
+        //    }        
+        //}
 
     }
 }

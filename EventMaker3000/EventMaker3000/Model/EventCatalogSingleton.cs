@@ -4,7 +4,7 @@ using EventMaker3000.Persistency;
 
 namespace EventMaker3000.Model
 {
-    ///7 The responsibley of the eventcatalog singleton is only to maintin the events.
+    /// The responsibility of the eventcatalogsingleton is only to maintain the events.
     public class EventCatalogSingleton
     {
 
@@ -15,8 +15,6 @@ namespace EventMaker3000.Model
         private EventCatalogSingleton()
         {
             Events = new ObservableCollection<Event>();
-
-            // The purpose of this is to make some instances of events. It creates instances of events and adds it to the observable collection.
             LoadEventAsync();
         }
 
@@ -66,11 +64,6 @@ namespace EventMaker3000.Model
                     Events.Add(ev);
                 }
 
-            // Statically adds elements to test the observable collection: Not needed
-
-            //Events.Add(new Event(1, "Football practice", "First practice this year!", "Parken", DateTime.Now + TimeSpan.FromDays(1)));
-            //Events.Add(new Event(2, "Bjarkes Birthday", "Surprise party of the year", "Vejnavn 9, 3.th", DateTime.Now + TimeSpan.FromDays(1)));
-            //Events.Add(new Event(3, "The Black Keys", "Concert with Jeppe", "Vega", DateTime.Now + TimeSpan.FromDays(1)));
         }
     }
 }
